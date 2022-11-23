@@ -29,7 +29,22 @@ public class ReporteController {
 		response.setHeader("Content-Disposition", "inline;");
 		response.setContentType("application/pdf");
 		try {
-			String ru = resourceLoader.getResource("classpath:reportes/listadoMercado2.jasper").getURI().getPath();
+			String ru = resourceLoader.getResource("classpath:reportes/listaMercado2.jasper").getURI().getPath();
+			JasperPrint jasperPrint = JasperFillManager.fillReport(ru, null, dataSource.getConnection());
+			OutputStream outStream = response.getOutputStream();
+			JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+	}
+	
+	@GetMapping("/reservas")
+	public void verReporteReservas(HttpServletResponse response) {
+		
+		response.setHeader("Content-Disposition", "inline;");
+		response.setContentType("application/pdf");
+		try {
+			String ru = resourceLoader.getResource("classpath:reportes/listadoMercado.jasper").getURI().getPath();
 			JasperPrint jasperPrint = JasperFillManager.fillReport(ru, null, dataSource.getConnection());
 			OutputStream outStream = response.getOutputStream();
 			JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);

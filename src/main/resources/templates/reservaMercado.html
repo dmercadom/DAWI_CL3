@@ -11,10 +11,6 @@
 		<h1>Reserva de Matricula</h1>
 		<form action="/grabar" method="post" th:object="${reservas}">
 			<div class="form-group">
-				<label for="inputCode">Código</label> <input type="number"
-					th:field="*{codigo}" class="form-control" id="inputAddress"
-					placeholder="solo numeros">
-					
 				<label for="inputCode">Nombre</label> <input type="text"
 					th:field="*{nombre}" class="form-control" id="inputAddress"
 					placeholder="Nombre">
@@ -24,7 +20,7 @@
 					placeholder="Apellido">
 			</div>
 			<div class="form-group">
-				<label for="inputAddress2">Fecha de publicacion</label> <input
+				<label for="inputAddress2">Fecha de Registro</label> <input
 					type="date" th:field="*{fchregistro}" class="form-control"
 					id="inputAddress2" placeholder="YYYY-MM-DD">
 			</div>
